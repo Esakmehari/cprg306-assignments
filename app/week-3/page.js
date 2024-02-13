@@ -1,4 +1,4 @@
-import ItemList from './item-list'; // Import other components as needed
+import ItemList from './item-list'; 
 
 function Page() {
   return (
