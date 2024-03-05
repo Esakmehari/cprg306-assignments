@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import Item from './item.js';
-import items from './items.json';
+import items from './item.json';
 
 const ItemList = () => {
   const [sortBy, setSortBy] = useState('name');
@@ -16,18 +16,20 @@ const ItemList = () => {
 
   return (
     <div>
-      <div>
+      <div style={{ marginBottom: '10px' }}>
+        <span style={{ marginRight: '10px' }}>Sort by:</span>
         <button
           onClick={() => setSortBy('name')}
-          style={{ backgroundColor: sortBy === 'name' ? 'lightblue' : 'white' }}
+          style={{ marginRight: '10px', border: sortBy === 'name' ? '1px solid red' : 'none', padding: '5px' }}
         >
-          Sort by Name
+          Name
         </button>
+
         <button
           onClick={() => setSortBy('category')}
-          style={{ backgroundColor: sortBy === 'category' ? 'lightblue' : 'white' }}
+          style={{ border: sortBy === 'category' ? '1px solid red' : 'none', padding: '5px' }}
         >
-          Sort by Category
+          Category
         </button>
       </div>
       <ul>
