@@ -9,7 +9,7 @@ const MealIdeas = ({ ingredient }) => {
       try {
         const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
         const data = await response.json();
-        setMeals(data.meals || []); // Ensure meals is an array or set it to an empty array if it's null or undefined
+        setMeals(data.meals);
       } catch (error) {
         console.error('Error fetching meal ideas:', error);
       }
@@ -22,7 +22,7 @@ const MealIdeas = ({ ingredient }) => {
     <div>
       <h2>Meal Ideas with {ingredient}</h2>
       <ul style={{ listStyle: 'none', padding: 0 }}>
-        {meals && meals.map(meal => (
+        {meals.map(meal => (
           <li key={meal.idMeal}>
             <img src={meal.strMealThumb} alt={meal.strMeal} style={{ width: '250px', height: '250px' }} />
             <p>{meal.strMeal}</p>
